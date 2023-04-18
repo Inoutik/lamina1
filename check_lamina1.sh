@@ -14,6 +14,10 @@ echo '\e[0m'
 echo 'You node ID'
 curl -X POST --data '{"jsonrpc":"2.0", "id" :1,"method" :"info.getNodeID"}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info | cut -d '"' -f 10
 
+echo ' "
+echo 'Your node uptime'
+curl -X POST --data '{"jsonrpc":"2.0","id":1,"method" :"info.uptime"}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info|jq
+
 echo 'Is your node bootstrapped?'
 #!/bin/bash
 starting_port=$1
