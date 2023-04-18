@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo -e '\e[40m\e[92m'
 echo -e '                                                   '
