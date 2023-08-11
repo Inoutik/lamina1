@@ -71,7 +71,7 @@ format_value() {
 # Get current validators
 data=$(curl -sS -X POST --data '{"jsonrpc":"2.0","id":1,"method":"platform.getCurrentValidators", "params": {"nodeIDs": ["'$node_id'"]}}' \
     -H 'content-type:application/json;' $localhost/ext/bc/P |
-    jq '.result.validators[] | select(.nodeID=="'$nodeid'")')
+    jq '.result.validators[] | select(.nodeID=="'$node_id'")')
 	
 echo $data
 [[ $data ]] || {
