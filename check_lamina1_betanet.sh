@@ -85,7 +85,7 @@ echo $data
     }
     # Check start time
     start=$(echo $pending | jq -r '.startTime')
-    start=$(date -d "@$start" "+%Y-%m-%d %H:%M:%S")
+    start=$(date -d "@$start" "+%Y-%m-%d %H:%M:%S" -u)
     echo -e "$node_id found in pending validators\nStart Time: $start UTC"
     exit -1
 }	
@@ -95,10 +95,10 @@ echo $data
 uptime=$(echo $data | jq -r '.uptime')
 # Start time
 start=$(echo $data | jq -r '.startTime')
-start=$(date -d "@$start" "+%Y-%m-%d %H:%M:%S")
+start=$(date -d "@$start" "+%Y-%m-%d %H:%M:%S" -u)
 # End Time
 endtime=$(echo $data | jq -r '.endTime')
-endtime=$(date -d "@$endtime" "+%Y-%m-%d %H:%M:%S")
+endtime=$(date -d "@$endtime" "+%Y-%m-%d %H:%M:%S" -u)
 # Delegation fee
 fee=$(echo $data | jq -r '.delegationFee')
 # Number of delegators
