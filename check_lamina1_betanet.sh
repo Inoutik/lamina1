@@ -73,7 +73,7 @@ data=$(curl -sS -X POST --data '{"jsonrpc":"2.0","id":1,"method":"platform.getCu
     -H 'content-type:application/json;' $localhost/ext/bc/P |
     jq '.result.validators[] | select(.nodeID=="'$node_id'")')
 	
-echo $data
+#echo $data
 [[ $data ]] || {
     # Check if node is in pending validators
     pending=$(curl -sS -X POST --data '{"jsonrpc":"2.0","id":1,"method":"platform.getPendingValidators", "params": {"nodeIDs": ["'$node_id'"]}}' \
