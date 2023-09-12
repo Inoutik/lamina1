@@ -9,14 +9,14 @@ echo '⣿⠀⣿⣿⣿⣿⣿⣿⣿⣿⠃⡀⠘⣿⣿⣿⣿⣿⡇⠀⠘⠟⠀⠀�
 echo '⣿⠀⠿⠿⢿⣿⣿⣿⣿⠇⢀⣉⡀⠸⣿⣿⣿⣿⡇⠀⣦⣤⡆⠀⣿⣿⣿⣿⣿⠿⠀⠿⣿⣿⣿⣿⣿⠀⣷⣄⠈⠀⣿⣿⣿⣿⡿⠁⣈⣁⠀⢻⣿⣿⣿⣿⣿⣿⣿'
 echo '⣿⣶⣶⣶⣾⣿⣿⣿⣿⣶⣾⣿⣷⣶⣿⣿⣿⣿⣷⣶⣿⣿⣷⣶⣿⣿⣿⣿⣿⣶⣶⣶⣿⣿⣿⣿⣿⣶⣿⣿⣷⣶⣿⣿⣿⣿⣷⣶⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿'
 echo ''
-echo 'You node IDs'
+echo 'Your node IDs'
 node_id=$(curl -s -X POST --data '{"jsonrpc":"2.0", "id" :1,"method" :"info.getNodeID"}' -H 'content-type:application/json;' $localhost/ext/info | cut -d '"' -f 10)
 node_pk=$(curl -s -X POST --data '{"jsonrpc":"2.0", "id" :1,"method" :"info.getNodeID"}' -H 'content-type:application/json;' $localhost/ext/info | jq -r .result.nodePOP.publicKey)
 node_pop=$(curl -s -X POST --data '{"jsonrpc":"2.0", "id" :1,"method" :"info.getNodeID"}' -H 'content-type:application/json;' $localhost/ext/info | jq -r .result.nodePOP.proofOfPossession)
 echo $node_id
 echo NodePK-$node_pk
 echo NodePOP-$node_pop
-echo 'healty - ' | tr -d '\n'
+echo 'healthy - ' | tr -d '\n'
 curl -s -X POST --data '{"jsonrpc":"2.0","id":1,"method" :"health.health"}' -H 'content-type:application/json;' $localhost/ext/health | jq '.result.healthy'
 echo ''
 echo 'Current Lamina1 block on node (betanet)'
