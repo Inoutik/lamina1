@@ -134,3 +134,6 @@ echo "Delegated stake: $stake L1"
 echo "Potential Delegation Rewards: $rewards L1"
 echo "Accrued Delegation Rewards: $accrued_rewards L1"
 echo "Delegation Rewards Destination: $rewards_owner"
+
+echo "Delegators:"
+echo $data | jq -r ".delegators[] | .rewardOwner.addresses[], [.stakeAmount | tonumber / 1000000000][]"
